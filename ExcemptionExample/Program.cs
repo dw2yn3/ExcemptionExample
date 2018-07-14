@@ -14,6 +14,7 @@ namespace ExcemptionExample
             //int a = 4;
             //int b = 0;
 
+            // using exemptions
 
             //try
             //{
@@ -51,9 +52,21 @@ namespace ExcemptionExample
 
             // Examples of StringWriter and StringReader
 
-            StringReaderWrite swr = new StringReaderWrite();
+            //StringReaderWrite swr = new StringReaderWrite();
 
 
+            //Using Properties and Filds
+
+            //Person person = new Person();
+            //person.Age = 55;
+            //Console.WriteLine("Age is " + person.Age);
+
+            // Using Constructor
+
+            //DefConstructor dc = new DefConstructor();
+            //dc.DoThis();
+            //AddConstructor ad = new AddConstructor();
+            
         }
         #region - String write from User
         public class StringReaderWrite
@@ -93,6 +106,61 @@ namespace ExcemptionExample
                 sr.Close();
             }
             #endregion
+
+        }
+
+        #region - Using Property and Fields
+
+        //Properties and Fields
+
+
+    }
+    public class Person
+    {
+        private int age;
+
+        public int Age
+        {
+            get
+            {
+                return age;
+            }
+            set
+            {
+                if ((value > 0) && (value < 65))
+                {
+                    age = value;
+                }
+                else
+                {
+                    throw new Exception("Age cannot be over 65!");
+                }
+            }
         }
     }
+    #endregion
+
+    #region - using Constructors
+    // Using Constructors
+
+    public class DefConstructor
+    {
+        public void DoThis()
+        {
+            Console.WriteLine("DoThis as run....");
+        }
+    }
+    public class AddConstructor
+    {
+        public AddConstructor()
+        {
+            Console.WriteLine("The constructor has been called....");
+            DoThat();
+        }
+        public void DoThat()
+        {
+            Console.WriteLine("DoThat has executed...");
+        }
+    }
+    #endregion
 }
